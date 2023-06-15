@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# [Frontend] News Browser Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Approach
 
-## Available Scripts
+The application allows users to view the latest news articles, filter results by search keywords, maintain a list of favorite articles, and track the read articles. The challenge was approached by breaking down the functionality into separate components and managing the state using React hooks.
 
-In the project directory, you can run:
+The key components of the application include:
 
-### `npm start`
+- `App`: The main component that fetches the articles, manages the state, and renders the other components.
+- `ArticleCard`: Renders article and handles actions like adding/removing favorites and marking article as read.
+- `FavoritesList`: Renders the list of favorite articles.
+- `FilterInput`: Renders the input field used for filtering the articles based on search keywords.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Implementation Tradeoffs
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **UI Framework**: The application was built using React, which provides a component-based architecture for better code organization and reusability.
+- **CICD System**: The current implementation of the CICD system encounters limitations due to changes in the liberties of the free developer keys on newapi.org since May 22, 2020. Any request using the free key, not originating from localhost, is now rejected. To overcome this constraint, it is necessary to acquire one of the keys specifically designed for production projects, which requires a purchase.
+- **Styling and Third-Party Libraries**: Basic CSS styles were applied to create a visually appealing and user-friendly interface. For more complex styling needs, a CSS preprocessor or a UI component library (like Material-UI, Ant Design, React Bootstrap) can be considered. Using a library like Material-UI could enhance the user experience and provide pre-built UI components for faster development
+- **Responsiveness**: The application was not optimized for responsiveness in this implementation. Additional CSS media queries and layout adjustments could be made to ensure a better user experience across different screen sizes.
+- **Layout**: One tradeoff is the decision to display news articles in a single column layout. Implementing a two-column layout could enhance the visual presentation and optimize screen space usage, but it would require additional CSS and layout adjustments for responsiveness and readability.
+- **Error Handling**: Error handling for API requests and user input validation was not extensively implemented in this version. Proper error messages and fallback UI could be added to improve the robustness of the application.
+- **Filtering Interaction**: Filtering functionality is triggered by clicking the "Search" button, rather than dynamically updating as the user types. While the current approach simplifies the implementation, it may result in a less seamless user experience. Implementing real-time filtering, where the articles are updated as the user types, would require additional logic and event handling to handle the input changes efficiently.
 
-### `npm test`
+## Future Enhancements
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Here are some potential enhancements that could be considered for further development:
 
-### `npm run build`
+- **Pagination**: Implementing pagination to load and display a limited number of articles at a time could improve performance and user experience, especially when dealing with a large number of articles.
+- **Category Filters**: Adding filters for different news categories (e.g., game industry, politics, sports) would allow users to browse articles based on their interests.
+- **User Authentication**: Implementing user authentication and user-specific features like personalized favorites, history, and saved searches would enhance the application's functionality.
+- **Social Sharing**: Adding social sharing functionality to allow users to share interesting articles with others through popular social media platforms or email.
+- **Notification System**: Implementing a notification system to notify users about new articles, trending topics, or personalized recommendations can enhance user engagement and retention.
+- **Improved Search**: Enhancing the search functionality with more advanced features like auto-suggestions, search history, or advanced search options (e.g., filtering by date range) would make the application more powerful and user-friendly.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Testing Instructions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To run the project locally, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository: `git clone https://github.com/<your-username>/news-browser.git`
+2. Navigate to the project directory: `cd news-browser`
+3. Install the dependencies: `npm install`
+4. Obtain an API key from [NewsAPI](https://newsapi.org/) and replace `"YOUR_API_KEY"` in the API URL with your actual API key in the following file: `src/App.js`
+5. Start the development server: `npm start`
+6. Open your browser and access the application at `http://localhost:3000`
 
-### `npm run eject`
+Make sure you have Node.js and npm installed on your machine before running the above commands.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to reach out to me at sqa.artur@gmail.com if you have any questions or need further assistance.
